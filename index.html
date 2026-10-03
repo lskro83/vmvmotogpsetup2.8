@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MotoGP Setup Manager</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <header>
+        <h1>MotoGP Setup Manager</h1>
+    </header>
+
+    <!-- ONGLET SAISIE -->
+    <div id="tab-accueil" class="tab-content active">
+        <form id="formSetup">
+            <div class="section-title">Informations Générales</div>
+            <input type="text" id="auteurInput" placeholder="Votre Pseudo (Auteur)" required>
+            <input type="text" id="motoInput" placeholder="Moto (ex: Ducati Desmosedici)" required>
+            
+            <label style="font-size:11px; color:#aaa;">Circuit (22 Calendrier MotoGP)</label>
+            <select id="circuitNomInput">
+                <option value="Losail (Qatar)">Losail (Qatar)</option>
+                <option value="Portimão (Portugal)">Portimão (Portugal)</option>
+                <option value="Austin (Amériques)">Austin (Amériques)</option>
+                <option value="Jerez (Espagne)">Jerez (Espagne)</option>
+                <option value="Le Mans (France)" selected>Le Mans (France)</option>
+                <option value="Catalunya (Catalogne)">Catalunya (Catalogne)</option>
+                <option value="Mugello (Italie)">Mugello (Italie)</option>
+                <option value="Kazakhstan">Kazakhstan</option>
+                <option value="Assen (Pays-Bas)">Assen (Pays-Bas)</option>
+                <option value="Sachsenring (Allemagne)">Sachsenring (Allemagne)</option>
+                <option value="Silverstone (Grande-Bretagne)">Silverstone (Grande-Bretagne)</option>
+                <option value="Spielberg (Autriche)">Spielberg (Autriche)</option>
+                <option value="Aragón (Espagne)">Aragón (Espagne)</option>
+                <option value="Misano (Saint-Marin)">Misano (Saint-Marin)</option>
+                <option value="Buddh (Inde)">Buddh (Inde)</option>
+                <option value="Motegi (Japon)">Motegi (Japon)</option>
+                <option value="Phillip Island (Australie)">Phillip Island (Australie)</option>
+                <option value="Buriram (Thaïlande)">Buriram (Thaïlande)</option>
+                <option value="Sepang (Malaisie)">Sepang (Malaisie)</option>
+                <option value="Valence (Communauté Valencienne)">Valence (Communauté Valencienne)</option>
+                <option value="Miami">Miami</option>
+                <option value="Buenos Aires">Buenos Aires</option>
+            </select>
+
+            <div class="section-title">Pneumatiques</div>
+            <select id="pneuAvant"><option>Soft</option><option selected>Medium</option><option>Hard</option></select>
+            <select id="pneuArriere"><option>Soft</option><option selected>Medium</option><option>Hard</option></select>
+
+            <div class="section-title">Suspension Avant</div>
+            <label style="font-size:11px; color:#aaa;">Précharge</label><input type="number" id="suspAvPre" value="4" min="1" max="7">
+            <label style="font-size:11px; color:#aaa;">Huile</label><input type="number" id="suspAvHui" value="4" min="1" max="7">
+            <label style="font-size:11px; color:#aaa;">Ressort</label><input type="number" id="suspAvRes" value="4" min="1" max="7">
+            <label style="font-size:11px; color:#aaa;">Compression</label><input type="number" id="suspAvCom" value="4" min="1" max="7">
+            <label style="font-size:11px; color:#aaa;">Extension</label><input type="number" id="suspAvExt" value="4" min="1" max="7">
+
+            <div class="section-title">Suspension Arrière</div>
+            <label style="font-size:11px; color:#aaa;">Précharge</label><input type="number" id="suspArPre" value="4" min="1" max="7">
+            <label style="font-size:11px; color:#aaa;">Ressort</label><input type="number" id="suspArRes" value="4" min="1" max="7">
+            <label style="font-size:11px; color:#aaa;">Comp. Lente</label><input type="number" id="suspArCL" value="4" min="1" max="7">
+            <label style="font-size:11px; color:#aaa;">Comp. Rapide</label><input type="number" id="suspArCR" value="4" min="1" max="7">
+            <label style="font-size:11px; color:#aaa;">Extension</label><input type="number" id="suspArExt" value="4" min="1" max="7">
+
+            <div class="section-title">Boîte de Vitesse</div>
+            <label style="font-size:11px; color:#aaa;">1ère vitesse</label><input type="number" id="bv1" value="4" min="1" max="7">
+            <label style="font-size:11px; color:#aaa;">2ème vitesse</label><input type="number" id="bv2" value="4" min="1" max="7">
+            <label style="font-size:11px; color:#aaa;">3ème vitesse</label><input type="number" id="bv3" value="4" min="1" max="7">
+            <label style="font-size:11px; color:#aaa;">4ème vitesse</label><input type="number" id="bv4" value="4" min="1" max="7">
+            <label style="font-size:11px; color:#aaa;">5ème vitesse</label><input type="number" id="bv5" value="4" min="1" max="7">
+            <label style="font-size:11px; color:#aaa;">6ème vitesse</label><input type="number" id="bv6" value="4" min="1" max="7">
+            <label style="font-size:11px; color:#aaa;">Rapport Final</label><input type="number" id="bvFinal" value="4" min="1" max="7">
+            <label style="font-size:11px; color:#aaa;">Anti-dribble (Engine Brake Slip)</label><input type="number" id="antiDribble" value="4" min="1" max="7">
+
+            <div class="section-title">Freins & Électronique</div>
+            <input type="text" id="freinAvant" value="340mm Standard">
+            <input type="text" id="freinArriere" value="220mm Standard">
+            <label style="font-size:11px; color:#aaa;">TCS (Antipatinage)</label><input type="number" id="ecuTcs" value="3" min="1" max="5">
+            <label style="font-size:11px; color:#aaa;">Anti-wheeling</label><input type="number" id="ecuAw" value="3" min="1" max="5">
+            <label style="font-size:11px; color:#aaa;">EBS (Frein moteur)</label><input type="number" id="ecuEbs" value="3" min="1" max="5">
+
+            <div class="section-title">Géométrie</div>
+            <label style="font-size:11px; color:#aaa;">Chasse</label><input type="number" id="geoCha" value="4" min="1" max="7">
+            <label style="font-size:11px; color:#aaa;">Déport</label><input type="number" id="geoDep" value="4" min="1" max="7">
+            <label style="font-size:11px; color:#aaa;">Plaque de direction</label><input type="number" id="geoPla" value="4" min="1" max="7">
+            <label style="font-size:11px; color:#aaa;">Bras oscillant</label><input type="number" id="geoBra" value="4" min="1" max="7">
+
+            <button type="submit" style="margin-top:20px;">Publier le Setup sur le Cloud</button>
+        </form>
+    </div>
+
+    <!-- ONGLETS SETUPS PUBLICS -->
+    <div id="tab-setups" class="tab-content">
+        <div class="section-title">Setups en Ligne</div>
+        <input type="text" id="filtreInput" placeholder="Filtrer par moto ou auteur...">
+        <select id="filtreCircuitSelect">
+            <option value="">Tous les circuits</option>
+            <option value="Losail (Qatar)">Losail (Qatar)</option>
+            <option value="Portimão (Portugal)">Portimão (Portugal)</option>
+            <option value="Austin (Amériques)">Austin (Amériques)</option>
+            <option value="Jerez (Espagne)">Jerez (Espagne)</option>
+            <option value="Le Mans (France)">Le Mans (France)</option>
+            <option value="Catalunya (Catalogne)">Catalunya (Catalogne)</option>
+            <option value="Mugello (Italie)">Mugello (Italie)</option>
+            <option value="Kazakhstan">Kazakhstan</option>
+            <option value="Assen (Pays-Bas)">Assen (Pays-Bas)</option>
+            <option value="Sachsenring (Allemagne)">Sachsenring (Allemagne)</option>
+            <option value="Silverstone (Grande-Bretagne)">Silverstone (Grande-Bretagne)</option>
+            <option value="Spielberg (Autriche)">Spielberg (Autriche)</option>
+            <option value="Aragón (Espagne)">Aragón (Espagne)</option>
+            <option value="Misano (Saint-Marin)">Misano (Saint-Marin)</option>
+            <option value="Buddh (Inde)">Buddh (Inde)</option>
+            <option value="Motegi (Japon)">Motegi (Japon)</option>
+            <option value="Phillip Island (Australie)">Phillip Island (Australie)</option>
+            <option value="Buriram (Thaïlande)">Buriram (Thaïlande)</option>
+            <option value="Sepang (Malaisie)">Sepang (Malaisie)</option>
+            <option value="Valence (Communauté Valencienne)">Valence (Communauté Valencienne)</option>
+            <option value="Miami">Miami</option>
+            <option value="Buenos Aires">Buenos Aires</option>
+        </select>
+        <div id="listeSetups" style="margin-top:15px;">Chargement...</div>
+    </div>
+
+    <!-- ONGLET PROFIL -->
+    <div id="tab-profil" class="tab-content">
+        <div class="section-title">Mon Profil</div>
+        <p id="statutSession" style="font-size:12px; margin-bottom:10px; color:#aaa;">Statut : Déconnecté</p>
+        <input type="text" id="pseudoActifInput" placeholder="Entrez votre pseudo...">
+        <button id="btnToggleProfil">Se connecter</button>
+    </div>
+
+    <!-- ONGLET COACH IA -->
+    <div id="tab-coach" class="tab-content">
+        <div class="section-title">Coach IA MotoGP</div>
+        <div style="display:flex; gap:5px; margin-bottom:10px;">
+            <button id="btnCoachRapide" class="active" style="flex:1;">Rapide (Diagnostic)</button>
+            <button id="btnCoachComplet" style="flex:1;">Avancé (Générateur)</button>
+        </div>
+
+        <!-- Coach Rapide -->
+        <div id="viewCoachRapide" class="coach-view">
+            <label style="font-size:11px; color:#aaa;">Phase de pilotage</label>
+            <select id="phaseSelect" style="margin-top:5px;">
+                <option value="Entree">Entrée de virage</option>
+                <option value="Milieu" selected>Milieu de virage</option>
+                <option value="Sortie">Sortie de virage</option>
+                <option value="Freinage">Phase de freinage</option>
+            </select>
+            <label style="font-size:11px; color:#aaa; margin-top:10px; display:block;">Problème ressenti</label>
+            <select id="problemeSelect" style="margin-top:5px;"></select>
+            <div id="conseilBox" class="result-box" style="margin-top:15px;">Sélectionne un problème pour voir les ajustements de clics.</div>
+        </div>
+
+        <!-- Coach Avancé (Générateur ultra-complet avec options élargies) -->
+        <div id="viewCoachComplet" class="coach-view" style="display:none;">
+            <label style="font-size:11px; color:#aaa;">Circuit cible</label>
+            <select id="aiCircuitNom" style="margin-top:5px;">
+                <option value="Losail (Qatar)">Losail (Qatar)</option>
+                <option value="Portimão (Portugal)">Portimão (Portugal)</option>
+                <option value="Austin (Amériques)">Austin (Amériques)</option>
+                <option value="Jerez (Espagne)">Jerez (Espagne)</option>
+                <option value="Le Mans (France)" selected>Le Mans (France)</option>
+                <option value="Catalunya (Catalogne)">Catalunya (Catalogne)</option>
+                <option value="Mugello (Italie)">Mugello (Italie)</option>
+                <option value="Assen (Pays-Bas)">Assen (Pays-Bas)</option>
+                <option value="Sachsenring (Allemagne)">Sachsenring (Allemagne)</option>
+                <option value="Silverstone (Grande-Bretagne)">Silverstone (Grande-Bretagne)</option>
+                <option value="Spielberg (Autriche)">Spielberg (Autriche)</option>
+                <option value="Aragón (Espagne)">Aragón (Espagne)</option>
+                <option value="Misano (Saint-Marin)">Misano (Saint-Marin)</option>
+                <option value="Motegi (Japon)">Motegi (Japon)</option>
+                <option value="Phillip Island (Australie)">Phillip Island (Australie)</option>
+                <option value="Buriram (Thaïlande)">Buriram (Thaïlande)</option>
+                <option value="Sepang (Malaisie)">Sepang (Malaisie)</option>
+                <option value="Valence">Valence</option>
+            </select>
+
+            <label style="font-size:11px; color:#aaa; margin-top:10px; display:block;">Météo & Température</label>
+            <select id="aiMeteo" style="margin-top:5px;">
+                <option value="Sec - Très Chaud (>35°C Piste)">Sec - Très Chaud (&gt;35°C Piste)</option>
+                <option value="Sec - Chaud (Grip max)">Sec - Chaud (Grip max)</option>
+                <option value="Sec - Frais (Grip moyen)">Sec - Frais (Grip moyen)</option>
+                <option value="Humide / Piste séchante">Humide / Piste séchante</option>
+                <option value="Pluie Torrentielle">Pluie Torrentielle</option>
+            </select>
+
+            <label style="font-size:11px; color:#aaa; margin-top:10px; display:block;">Type de virages du circuit</label>
+            <select id="aiTypeVirages" style="margin-top:5px;">
+                <option value="Stop-and-Go (Gros freinages / Lentes accélérations)">Stop-and-Go (Gros freinages / Lentes accélérations)</option>
+                <option value="Courbes rapides & Fluides">Courbes rapides &amp; Fluides</option>
+                <option value="Mixte (Équilibré lent/rapide)">Mixte (Équilibré lent/rapide)</option>
+                <option value="Épingles serrées">Épingles serrées</option>
+            </select>
+
+            <label style="font-size:11px; color:#aaa; margin-top:10px; display:block;">Comportement recherché / Priorité</label>
+            <select id="aiComportement" style="margin-top:5px;">
+                <option value="Stabilité maximale au freinage et en entrée">Stabilité maximale au freinage et en entrée</option>
+                <option value="Agilité maximale pour changer d'angle vite">Agilité maximale pour changer d'angle vite</option>
+                <option value="Préservation des pneus arrière en fin de course">Préservation des pneus arrière en fin de course</option>
+                <option value="Vitesse de pointe pure en ligne droite">Vitesse de pointe pure en ligne droite</option>
+            </select>
+
+            <label style="font-size:11px; color:#aaa; margin-top:10px; display:block;">Style de pilotage</label>
+            <select id="aiStyle" style="margin-top:5px;">
+                <option value="Aggressif (Gros attack sur les freins)">Aggressif (Gros attack sur les freins)</option>
+                <option value="Coulé (Passage en courbe enroulé)">Coulé (Passage en courbe enroulé)</option>
+            </select>
+
+            <button id="btnGenererSetupAI" style="margin-top:15px;">Générer le Setup Complet Pro à 100%</button>
+            <div id="setupCompletBox" class="result-box" style="display:none; margin-top:15px;"></div>
+        </div>
+    </div>
+
+    <!-- BARRE DE NAVIGATION -->
+    <nav class="nav-bar">
+        <button class="nav-tab active" id="btn-accueil">Saisie</button>
+        <button class="nav-tab" id="btn-setups">Setups</button>
+        <button class="nav-tab" id="btn-profil">Profil</button>
+        <button class="nav-tab" id="btn-coach">Coach IA</button>
+    </nav>
+
+    <!-- MODALE DETAILS COMPLET -->
+    <div id="modalDetails" class="modal">
+        <div class="modal-content">
+            <span id="btnCloseModal" class="close-modal">&times;</span>
+            <h3 id="modalTitre" style="color:#e10600; margin-bottom:10px;">Détails</h3>
+            <div id="modalCorps" style="font-size:13px; line-height:1.6;"></div>
+            <div id="modalActions" style="margin-top:15px; border-top:1px solid #333; padding-top:10px;"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
